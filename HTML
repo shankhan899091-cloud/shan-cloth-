@@ -1,1 +1,791 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shan Cloth | Premium Men's Wear</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #fff;
+        }
+
+        /* NAVBAR */
+        header {
+            width: 100%;
+            background: rgba(10, 10, 10, 0.96);
+            border-bottom: 1px solid #2c2c2c;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        .cart {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.75)),
+                url("https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .gold {
+            color: #d4af37;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #ddd;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #d4af37;
+            color: #111;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* SECTION */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #aaa;
+        }
+
+        /* PRODUCTS */
+        .products {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .product {
+            background: #151515;
+            border: 1px solid #292929;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .product img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 22px;
+        }
+
+        .product-info h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .product-info p {
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #d4af37;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .add-cart {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-cart:hover {
+            background: #d4af37;
+            color: #111;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #111;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-container p {
+            color: #bbb;
+            line-height: 1.9;
+            font-size: 17px;
+        }
+
+        /* ORDER */
+        .order {
+            max-width: 650px;
+            margin: auto;
+            background: #151515;
+            padding: 35px;
+            border: 1px solid #292929;
+        }
+
+        .order input,
+        .order select,
+        .order textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            background: #0c0c0c;
+            border: 1px solid #333;
+            color: white;
+            outline: none;
+        }
+
+        .order input:focus,
+        .order select:focus,
+        .order textarea:focus {
+            border-color: #d4af37;
+        }
+
+        .order button {
+            width: 100%;
+            padding: 15px;
+            background: #d4af37;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .order button:hover {
+            background: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050505;
+            border-top: 1px solid #292929;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer .footer-logo {
+            color: #d4af37;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #777;
+            margin: 8px 0;
+        }
+
+        .social {
+            margin-top: 20px;
+        }
+
+        .social a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">
+                SHAN <span>CLOTH</span>
+            </div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Collection</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#order">Order</a></li>
+            </ul>
+
+            <div class="cart">
+                🛒 Cart: <span id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <h1>
+                SHAN <span class="gold">CLOTH</span>
+            </h1>
+
+            <p>
+                Premium Men's Fashion.  
+                Designed for those who value style, quality and elegance.
+            </p>
+
+            <a href="#products" class="btn">
+                Explore Collection
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section id="products">
+
+        <div class="section-title">
+            <h2>Our <span class="gold">Collection</span></h2>
+            <p>Discover our premium men's clothing collection.</p>
+        </div>
+
+        <div class="products">
+
+            <!-- PRODUCT 1 -->
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Premium Black Kurta</h3>
+
+                    <p>
+                        Elegant premium men's kurta.
+                    </p>
+
+                    <div class="price">
+                        Rs. 4,999
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Premium Black Kurta')">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Classic White Shirt</h3>
+
+                    <p>
+                        Clean and sophisticated premium shirt.
+                    </p>
+
+                    <div class="price">
+                        Rs. 3,499
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Classic White Shirt')">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Luxury Formal Suit</h3>
+
+                    <p>
+                        Premium suit for special occasions.
+                    </p>
+
+                    <div class="price">
+                        Rs. 14,999
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Luxury Formal Suit')">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1598808503746-f34c53b9323e?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Premium Brown Kurta</h3>
+
+                    <p>
+                        Traditional design with a modern touch.
+                    </p>
+
+                    <div class="price">
+                        Rs. 5,499
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Premium Brown Kurta')">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1610652492500-ded49ceeb378?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Premium Denim Jacket</h3>
+
+                    <p>
+                        Modern men's jacket with premium finish.
+                    </p>
+
+                    <div class="price">
+                        Rs. 6,999
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Premium Denim Jacket')">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+
+            <!-- PRODUCT 6 -->
+            <div class="product">
+
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80">
+
+                <div class="product-info">
+
+                    <h3>Executive Suit</h3>
+
+                    <p>
+                        Luxury formal wear for gentlemen.
+                    </p>
+
+                    <div class="price">
+                        Rs. 19,999
+                    </div>
+
+                    <button class="add-cart"
+                        onclick="addToCart('Executive Suit')">
+                        Add to Cart
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="about-container">
+
+            <div class="section-title">
+                <h2>About <span class="gold">Shan Cloth</span></h2>
+            </div>
+
+            <p>
+                Shan Cloth is a premium men's fashion brand dedicated to
+                bringing timeless style, superior quality and modern elegance
+                to every customer. Our collection is carefully designed for
+                men who want to look confident and sophisticated.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORDER FORM -->
+    <section id="order">
+
+        <div class="section-title">
+
+            <h2>
+                Place Your <span class="gold">Order</span>
+            </h2>
+
+            <p>
+                Fill in your details and we'll contact you.
+            </p>
+
+        </div>
+
+
+        <div class="order">
+
+            <form onsubmit="placeOrder(event)">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Full Name"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Delivery Address"
+                    required
+                >
+
+                <select id="productSelect" required>
+
+                    <option value="">
+                        Select Product
+                    </option>
+
+                    <option>
+                        Premium Black Kurta
+                    </option>
+
+                    <option>
+                        Classic White Shirt
+                    </option>
+
+                    <option>
+                        Luxury Formal Suit
+                    </option>
+
+                    <option>
+                        Premium Brown Kurta
+                    </option>
+
+                    <option>
+                        Premium Denim Jacket
+                    </option>
+
+                    <option>
+                        Executive Suit
+                    </option>
+
+                </select>
+
+
+                <select id="size" required>
+
+                    <option value="">
+                        Select Size
+                    </option>
+
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+
+                </select>
+
+
+                <textarea
+                    id="message"
+                    rows="4"
+                    placeholder="Additional instructions (optional)"
+                ></textarea>
+
+
+                <button type="submit">
+                    PLACE ORDER
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            SHAN CLOTH
+        </div>
+
+        <p>
+            Premium Men's Fashion
+        </p>
+
+        <p>
+            © 2026 Shan Cloth. All Rights Reserved.
+        </p>
+
+        <div class="social">
+
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">WhatsApp</a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        let cartCount = 0;
+
+        function addToCart(productName) {
+
+            cartCount++;
+
+            document.getElementById("cartCount").innerText = cartCount;
+
+            alert(
+                productName +
+                " has been added to your cart!"
+            );
+        }
+
+
+        function placeOrder(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value;
+
+            const phone =
+                document.getElementById("phone").value;
+
+            const address =
+                document.getElementById("address").value;
+
+            const product =
+                document.getElementById("productSelect").value;
+
+            const size =
+                document.getElementById("size").value;
+
+            const message =
+                document.getElementById("message").value;
+
+
+            /*
+             * IMPORTANT:
+             * Apna WhatsApp number neeche enter karein.
+             * Country code ke saath number likhein.
+             *
+             * Example Pakistan:
+             * 923001234567
+             */
+
+            const whatsappNumber = "923001234567";
+
+
+            const text =
+                "SHAN CLOTH - NEW ORDER%0A%0A" +
+                "Name: " + name + "%0A" +
+                "Phone: " + phone + "%0A" +
+                "Address: " + address + "%0A" +
+                "Product: " + product + "%0A" +
+                "Size: " + size + "%0A" +
+                "Message: " + message;
+
+
+            const whatsappURL =
+                "https://wa.me/" +
+                whatsappNumber +
+                "?text=" +
+                text;
+
+
+            window.open(
+                whatsappURL,
+                "_blank"
+            );
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
 
